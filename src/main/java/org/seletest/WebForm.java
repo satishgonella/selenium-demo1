@@ -17,6 +17,9 @@ public class WebForm extends PageObject{
     @FindBy(xpath = "//a[contains(text(),'Submit')]")
     private WebElement submit_button;
 
+    @FindBy(xpath = "//div[contains(text(),'The form was successfully submitted!')]")
+    private WebElement alertSuccess;
+
     public WebForm(WebDriver driver) {
         super(driver);
     }
@@ -31,5 +34,9 @@ public class WebForm extends PageObject{
 
     public void pressSubmitButton(){
         this.submit_button.click();
+    }
+
+    public void verifyAlertSuccess(){
+        this.alertSuccess.isDisplayed();
     }
 }
